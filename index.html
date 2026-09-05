@@ -71,12 +71,12 @@
     }
 
     .hero {
-      padding: 5rem 3rem;
-      max-width: 1200px;
+      padding: 4rem 3rem;
+      max-width: 1250px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 4rem;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 3.5rem;
       align-items: center;
     }
 
@@ -154,35 +154,30 @@
     .product-display {
       position: relative;
       border: 1px solid var(--border-color);
-      height: 480px;
-      background: radial-gradient(circle at center, #1a2228 0%, #0e1317 70%);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
+      background: #0b0f13;
+      padding: 1.5rem;
       text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
-    .wireframe-art {
-      width: 140px;
-      height: 200px;
-      border: 1px dashed var(--accent-dim);
-      border-radius: 70px 70px 40px 40px;
-      position: relative;
-      margin-bottom: 2rem;
+    .product-image-container {
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-bottom: 1.2rem;
+      background: #07090b;
+      border: 1px solid #1a2228;
+      overflow: hidden;
     }
 
-    .wireframe-art::after {
-      content: "NEURAL HUB";
-      position: absolute;
-      top: 40%;
-      font-size: 0.6rem;
-      letter-spacing: 0.1rem;
-      color: var(--accent-gold);
+    .product-image {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: contrast(1.03);
     }
 
     .specs-section {
@@ -277,7 +272,7 @@
       font-size: 1.2rem;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       header { padding: 1rem 1.5rem; }
       nav { display: none; }
       .hero { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.5rem; }
@@ -305,7 +300,7 @@
         <div class="badge">Production Series: Batch #04</div>
         <h1>TYPE 2052 <strong>HADALY</strong></h1>
         <p class="hero-desc">
-          High-fidelity gynoid platform designed for executive companionship and aesthetic perfection. Equipped with harmonic vocal synthesis and sub-dermal kinetic articulation.
+          High-fidelity gynoid platform designed for ceremonial companionship and social interaction. Engineered with traditional aesthetic drapery over an advanced multi-point articulated skeleton.
         </p>
         <div class="cta-container">
           <button class="btn-primary" onclick="openOrderModal()">Request Acquisition</button>
@@ -317,9 +312,11 @@
       </div>
 
       <div class="product-display">
-        <div class="wireframe-art"></div>
+        <div class="product-image-container">
+          <img src="gynoid.jpg" alt="Locus Solus Hadaly F-2052 Technical Plate" class="product-image">
+        </div>
         <div style="font-size: 0.85rem; letter-spacing: 0.15rem; color: var(--accent-gold); font-weight: 600;">MODEL: HADALY F-2052</div>
-        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">DRY WEIGHT: 58.4 KG // PORCELAIN-TITANIUM DERMIS</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">16-POINT BALL-JOINT ARTICULATION // PORCELAIN-TITANIUM DERMIS</div>
       </div>
     </section>
 
@@ -328,23 +325,23 @@
       <div class="specs-grid">
         <div class="spec-card">
           <div class="spec-code">SYS-01 // LOCOMOTION</div>
-          <div class="spec-name">Pneumo-Galvanic Actuators</div>
-          <div class="spec-desc">Micro-servo harmonic drive joints delivering ultra-smooth kinematic profiles matching human organic baseline within 99.4% fidelity.</div>
+          <div class="spec-name">16-Point Ball-Joint Core</div>
+          <div class="spec-desc">High-grade nylon resin core providing frictionless multidirectional posture control and organic movement precision.</div>
         </div>
         <div class="spec-card">
           <div class="spec-code">SYS-02 // ACOUSTICS</div>
           <div class="spec-name">Harmonic Vocal Synthesis</div>
-          <div class="spec-desc">Multi-reed analog sound board paired with a solid-state modulation matrix for resonant tonal delivery without digital artifacts.</div>
+          <div class="spec-desc">Multi-reed analog sound board paired with a solid-state modulation matrix for natural voice synthesis.</div>
         </div>
         <div class="spec-card">
           <div class="spec-code">SYS-03 // DERMAL</div>
-          <div class="spec-name">Synthetic Porcelain Compound</div>
-          <div class="spec-desc">High-density thermoset composite over an unburnable titanium cage. Resilient against thermal shocks and environmental humidity.</div>
+          <div class="spec-name">Matte Porcelain Composite</div>
+          <div class="spec-desc">Tactile composite shell treated with high-pigment cosmetic finishes for realistic presentation.</div>
         </div>
         <div class="spec-card">
-          <div class="spec-code">SYS-04 // POWER CELL</div>
-          <div class="spec-name">Sub-Vertebral Inductive Cell</div>
-          <div class="spec-desc">72-hour operational window per charging cycle. Concealed dorsal interlock compatible with standard industrial power taps.</div>
+          <div class="spec-code">SYS-04 // ATTIRE</div>
+          <div class="spec-name">Custom Ceremonial Silk</div>
+          <div class="spec-desc">Tailored velvet and dyed silk ensemble integrated seamlessly with sub-dermal articulation channels.</div>
         </div>
       </div>
     </section>
@@ -357,6 +354,7 @@
     </div>
   </footer>
 
+  <!-- Modal Interattivo -->
   <div class="modal-backdrop" id="orderModal" onclick="handleBackdropClick(event)">
     <div class="modal-card">
       <button class="modal-close" onclick="closeOrderModal()">&times;</button>
@@ -387,4 +385,17 @@
     }
 
     function handleBackdropClick(e) {
-      if (e
+      if (e.target.id === 'orderModal') closeOrderModal();
+    }
+
+    function submitForm() {
+      const log = document.getElementById('modalLog');
+      log.style.display = 'block';
+      setTimeout(() => {
+        log.textContent = ">> STATUS: 403 / VERIFICATION HOLD — AGENTS WILL CONTACT YOUR SUBNET.";
+        log.style.color = "#e57373";
+      }, 900);
+    }
+  </script>
+</body>
+</html>
