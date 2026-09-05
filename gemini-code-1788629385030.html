@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOCUS SOLUS Robotics | Type 2052 Hadaly</title>
+  <style>
+    :root {
+      --bg-dark: #07090b;
+      --card-bg: #0e1317;
+      --accent-gold: #c5a059;
+      --accent-dim: #7f6738;
+      --text-main: #d1d5db;
+      --text-muted: #6b7280;
+      --border-color: #232d36;
+      --red-warning: #8b1e1e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(7, 9, 11, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      letter-spacing: 0.25rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .brand span {
+      color: var(--accent-gold);
+      font-size: 0.75rem;
+      display: block;
+      letter-spacing: 0.15rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-gold);
+    }
+
+    .hero {
+      padding: 5rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent-gold);
+      font-size: 0.75rem;
+      letter-spacing: 0.15rem;
+      padding: 0.25rem 0.6rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      letter-spacing: 0.15rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    h1 strong {
+      font-weight: 800;
+      color: var(--accent-gold);
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      max-width: 520px;
+    }
+
+    .cta-container {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--accent-gold);
+      color: #000;
+      border: none;
+      padding: 0.9rem 2rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.15rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: #dfb96c;
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    .product-display {
+      position: relative;
+      border: 1px solid var(--border-color);
+      height: 480px;
+      background: radial-gradient(circle at center, #1a2228 0%, #0e1317 70%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .wireframe-art {
+      width: 140px;
+      height: 200px;
+      border: 1px dashed var(--accent-dim);
+      border-radius: 70px 70px 40px 40px;
+      position: relative;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wireframe-art::after {
+      content: "NEURAL HUB";
+      position: absolute;
+      top: 40%;
+      font-size: 0.6rem;
+      letter-spacing: 0.1rem;
+      color: var(--accent-gold);
+    }
+
+    .specs-section {
+      border-top: 1px solid var(--border-color);
+      padding: 4rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 2.5rem;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .spec-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 1.75rem;
+    }
+
+    .spec-code {
+      font-size: 0.75rem;
+      color: var(--accent-dim);
+      letter-spacing: 0.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .spec-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    .spec-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2.5rem 3rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08rem;
+    }
+
+    .disclaimer {
+      max-width: 700px;
+      margin: 1rem auto 0;
+      color: #4b5563;
+      font-size: 0.7rem;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .modal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--accent-gold);
+      max-width: 480px;
+      width: 100%;
+      padding: 2rem;
+      text-align: left;
+    }
+
+    .modal-close {
+      float: right;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 1rem 1.5rem; }
+      nav { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.5rem; }
+      .specs-section { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      LOCUS SOLUS
+      <span>HEAVY INDUSTRIES // ROBOTICS DIV.</span>
+    </div>
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#specs">Specifications</a>
+      <a href="#compliance">Security</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <div>
+        <div class="badge">Production Series: Batch #04</div>
+        <h1>TYPE 2052 <strong>HADALY</strong></h1>
+        <p class="hero-desc">
+          High-fidelity gynoid platform designed for executive companionship and aesthetic perfection. Equipped with harmonic vocal synthesis and sub-dermal kinetic articulation.
+        </p>
+        <div class="cta-container">
+          <button class="btn-primary" onclick="openOrderModal()">Request Acquisition</button>
+          <div class="status-indicator">
+            <div class="status-dot"></div>
+            <span>Allocations open (Sector 04)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-display">
+        <div class="wireframe-art"></div>
+        <div style="font-size: 0.85rem; letter-spacing: 0.15rem; color: var(--accent-gold); font-weight: 600;">MODEL: HADALY F-2052</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">DRY WEIGHT: 58.4 KG // PORCELAIN-TITANIUM DERMIS</div>
+      </div>
+    </section>
+
+    <section class="specs-section" id="specs">
+      <div class="section-title">// Technical Architecture</div>
+      <div class="specs-grid">
+        <div class="spec-card">
+          <div class="spec-code">SYS-01 // LOCOMOTION</div>
+          <div class="spec-name">Pneumo-Galvanic Actuators</div>
+          <div class="spec-desc">Micro-servo harmonic drive joints delivering ultra-smooth kinematic profiles matching human organic baseline within 99.4% fidelity.</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-code">SYS-02 // ACOUSTICS</div>
+          <div class="spec-name">Harmonic Vocal Synthesis</div>
+          <div class="spec-desc">Multi-reed analog sound board paired with a solid-state modulation matrix for resonant tonal delivery without digital artifacts.</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-code">SYS-03 // DERMAL</div>
+          <div class="spec-name">Synthetic Porcelain Compound</div>
+          <div class="spec-desc">High-density thermoset composite over an unburnable titanium cage. Resilient against thermal shocks and environmental humidity.</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-code">SYS-04 // POWER CELL</div>
+          <div class="spec-name">Sub-Vertebral Inductive Cell</div>
+          <div class="spec-desc">72-hour operational window per charging cycle. Concealed dorsal interlock compatible with standard industrial power taps.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="compliance">
+    <div>LOCUS SOLUS ROBOTICS MFG. CORP. — NORTHERN EXCLUSION ZONE FACILITY</div>
+    <div class="disclaimer">
+      NOTICE: Export, alteration of factory-set biometric safeguards, or unverified ghost-dubbing operations are strictly regulated under Public Safety Code Art. 209. Locus Solus assumes no liability for autonomic neural deviation beyond baseline parameter margins.
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="orderModal" onclick="handleBackdropClick(event)">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeOrderModal()">&times;</button>
+      <div class="badge" style="margin-bottom: 0.5rem; border-color: var(--red-warning); color: #e57373;">CLEARANCE RESTRICTED</div>
+      <h2 style="color: #fff; font-size: 1.25rem; margin-bottom: 1rem;">Acquisition Request Form</h2>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        Direct acquisition requires corporate identity verification or a registered Diplomatic Class C certificate.
+      </p>
+      <div style="margin-bottom: 1rem;">
+        <label style="display:block; font-size: 0.75rem; color: var(--accent-gold); margin-bottom: 0.3rem;">ENTITY IDENTIFIER</label>
+        <input type="text" placeholder="e.g. SEC-9 / MEGACROMIA-CORP" style="width: 100%; background: #07090b; border: 1px solid var(--border-color); color: #fff; padding: 0.6rem; font-size: 0.85rem;">
+      </div>
+      <button class="btn-primary" style="width: 100%;" onclick="submitForm()">Transmit Credentials</button>
+      <div id="modalLog" style="margin-top: 1rem; font-size: 0.75rem; color: #10b981; font-family: monospace; display: none;">
+        >> DATA PACKET BUFFERED. DISPATCHING ENCRYPTED CARRIER PING...
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openOrderModal() {
+      document.getElementById('orderModal').style.display = 'flex';
+    }
+
+    function closeOrderModal() {
+      document.getElementById('orderModal').style.display = 'none';
+      document.getElementById('modalLog').style.display = 'none';
+    }
+
+    function handleBackdropClick(e) {
+      if (e
